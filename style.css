@@ -1,0 +1,101 @@
+
+:root {
+    --primary-color: #2E8B57;
+    --secondary-color: #228B22;
+    --accent-color: #32CD32;
+    --light-color: #F5F5F5;
+}
+
+body {
+    font-family: 'SolaimanLipi', 'Siyam Rupali', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.section-title {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.ayat-box {
+    background-color: #e8f5e9;
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.feature-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.donate-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s;
+}
+
+.donate-btn:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+}
