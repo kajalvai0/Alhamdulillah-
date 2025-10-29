@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আলহামদুলিল্লাহ ফাউন্ডেশন</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2E8B57;
+            --secondary-color: #228B22;
+            --accent-color: #32CD32;
+            --light-color: #F5F5F5;
+        }
+        
+        body {
+            font-family: 'SolaimanLipi', 'Siyam Rupali', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .ayat-box {
+            background-color: #e8f5e9;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .donate-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            border: none;
+            transition: all 0.3s;
+        }
+        
+        .donate-btn:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- নেভিগেশন বার -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-hands-helping me-2"></i>
+                আলহামদুলিল্লাহ ফাউন্ডেশন
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">হোম</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">আমাদের সম্পর্কে</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">সেবাসমূহ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#apply">সদস্য হন</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn donate-btn mt-1" data-bs-toggle="modal" data-bs-target="#donateModal">
+                            <i class="fas fa-donate me-1"></i> ডোনেট করুন
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- হিরো সেকশন -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">কর্জে হাসানা - বিনা সুদে ঋণ প্রদান</h1>
+            <p class="lead">অসচ্ছল, বিধবা, অসুস্থ, নারী উদ্যোক্তা, স্বল্প আয়ের কর্মজীবী নারী এবং নারী শিক্ষার্থীদের সহায়তা</p>
+            <a href="#apply" class="btn btn-success btn-lg mt-3">সদস্য হতে আবেদন করুন</a>
+        </div>
+    </section>
+
+    <!-- স্লাইডার সেকশন -->
+    <section class="py-5">
+        <div class="container">
+            <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner rounded">
+                    <div class="carousel-item active">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="শিক্ষা কার্যক্রম">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>দক্ষতা উন্নয়ন প্রশিক্ষণ</h5>
+                            <p>নারীদের জন্য বিভিন্ন দক্ষতা উন্নয়নমূলক প্রশিক্ষণের ব্যবস্থা</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="ঋণ প্রদান">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>কর্জে হাসানা</h5>
+                            <p>বিনা সুদে ঋণ প্রদান করে আত্মনির্ভরশীল হওয়ার সুযোগ</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="কর্মসংস্থান">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>কর্মসংস্থান সুযোগ</h5>
+                            <p>যোগ্যতা অনুযায়ী পার্ট টাইম চাকুরীর সুযোগ</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1551833996-2c1d78b7bc8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="ইসলামিক শিক্ষা">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>ইসলামিক শিক্ষা</h5>
+                            <p>ইসলাম সম্পর্কে জ্ঞান অর্জনের সুযোগ</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- আয়াত সেকশন -->
+    <section class="py-5 bg-light" id="about">
+        <div class="container">
+            <h2 class="text-center section-title">কর্জে হাসানা সম্পর্কে কুরআনের আয়াত</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="ayat-box">
+                        <p>"যারা আল্লাহর পথে নিজেদের ধন-সম্পদ ব্যয় করে, তাদের উপমা একটি বীজের মতো, যা সাতটি শীষ উৎপন্ন করে এবং প্রতিটি শীষে একশত দানা থাকে। আল্লাহ যাকে ইচ্ছে বহুগুণে বর্ধিত করে দেন। আর আল্লাহ প্রাচুর্যময়, সর্বজ্ঞ।"</p>
+                        <p class="text-end fst-italic">- সূরা আল-বাকারা (২:২৬১)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ayat-box">
+                        <p>"তোমরা যদি প্রকাশ্যে সদকাহ কর, তা কত উত্তম! আর যদি গোপনে কর এবং অভাবগ্রস্তকে দাও, তা তোমাদের জন্য আরও উত্তম। আর তিনি তোমাদের পাপসমূহ মিটিয়ে দেবেন। আর তোমরা যা কর, আল্লাহ তার সম্পূর্ণ খবর রাখেন।"</p>
+                        <p class="text-end fst-italic">- সূরা আল-বাকারা (২:২৭১)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ayat-box">
+                        <p>"যারা নিজেদের ধন-সম্পদ আল্লাহর পথে ব্যয় করে, অতঃপর নিজেদের দান করা বস্তুর পিছনে অনুগ্রহ রাখে না এবং কষ্ট দেয় না, তাদের পুরস্কার তাদের রবের কাছে রয়েছে। আর তাদের কোনো ভয় নেই এবং তারা চিন্তিতও হবে না।"</p>
+                        <p class="text-end fst-italic">- সূরা আল-বাকারা (২:২৬২)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- সেবাসমূহ -->
+    <section class="py-5" id="services">
+        <div class="container">
+            <h2 class="text-center section-title">আমাদের সেবাসমূহ</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h5 class="card-title">কর্জে হাসানা</h5>
+                            <p class="card-text">বিনা সুদে ৫০০০/- টাকা ঋণ প্রদান, যা প্রতি মাসে ৫০০/- টাকা করে ১০ মাসে পরিশোধ করতে হবে।</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h5 class="card-title">দক্ষতা উন্নয়ন প্রশিক্ষণ</h5>
+                            <p class="card-text">সেলাইয়ের কাজ, নকশিকাঁথার কাজ, বিউটি পার্লারে কাজের প্রশিক্ষণ প্রদান।</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h5 class="card-title">কর্মসংস্থান সুযোগ</h5>
+                            <p class="card-text">প্রাইভেট টিউশনি, বিউটি পার্লার, এবং যোগ্যতা অনুযায়ী পার্ট টাইম চাকুরীর সুযোগ।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- আবেদন ফর্ম -->
+    <section class="py-5 bg-light" id="apply">
+        <div class="container">
+            <h2 class="text-center section-title">সদস্য হওয়ার জন্য আবেদন ফর্ম</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="form-container">
+                        <form id="applicationForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">পূর্ণ নাম *</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="mobile" class="form-label">মোবাইল নম্বর *</label>
+                                    <input type="tel" class="form-control" id="mobile" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">ঠিকানা *</label>
+                                <textarea class="form-control" id="address" rows="3" required></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="photo" class="form-label">পাসপোর্ট সাইজ ছবি *</label>
+                                    <input type="file" class="form-control" id="photo" accept="image/*" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="voterId" class="form-label">ভোটার আইডি কার্ডের ছবি *</label>
+                                    <input type="file" class="form-control" id="voterId" accept="image/*" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="occupation" class="form-label">বর্তমান পেশা *</label>
+                                <input type="text" class="form-control" id="occupation" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="requirements" class="form-label">সদস্য পদে আবেদনের কারণ *</label>
+                                <textarea class="form-control" id="requirements" rows="4" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg">আবেদন জমা দিন</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ডোনেশন মডাল -->
+    <div class="modal fade" id="donateModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">আলহামদুলিল্লাহ ফাউন্ডেশনকে সহযোগিতা করুন</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="donationForm">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="anonymous">
+                                <label class="form-check-label" for="anonymous">
+                                    নাম প্রকাশ না করে দান করতে চাই
+                                </label>
+                            </div>
+                        </div>
+                        <div id="donorInfo">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="donorName" class="form-label">দাতার নাম</label>
+                                    <input type="text" class="form-control" id="donorName">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="donorMobile" class="form-label">মোবাইল নম্বর</label>
+                                    <input type="tel" class="form-control" id="donorMobile">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="donorAddress" class="form-label">ঠিকানা</label>
+                                <textarea class="form-control" id="donorAddress" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">ডোনেশন পদ্ধতি নির্বাচন করুন *</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="bkash" value="bkash" required>
+                                        <label class="form-check-label" for="bkash">
+                                            <i class="fas fa-mobile-alt me-1"></i> বিকাশ
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="nagad" value="nagad">
+                                        <label class="form-check-label" for="nagad">
+                                            <i class="fas fa-wallet me-1"></i> নগদ
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card">
+                                        <label class="form-check-label" for="card">
+                                            <i class="fas fa-credit-card me-1"></i> ক্রেডিট/ডেবিট কার্ড
+                                        </label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="bank" value="bank">
+                                        <label class="form-check-label" for="bank">
+                                            <i class="fas fa-university me-1"></i> অনলাইন ব্যাংকিং
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">ডোনেট করুন</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ফুটার -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>আলহামদুলিল্লাহ ফাউন্ডেশন</h5>
+                    <p>বিনা সুদে ঋণ প্রদান এবং নারী উন্নয়নে কাজ করে যাচ্ছে</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>যোগাযোগ</h5>
+                    <p><i class="fa
