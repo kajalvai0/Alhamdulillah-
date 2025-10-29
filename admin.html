@@ -1,21 +1,62 @@
 <!DOCTYPE html>
 <html lang="bn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>এডমিন প্যানেল - আলহামদুলিল্লাহ ফাউন্ডেশন</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+<!-- ... (head section) ... -->
 <body>
-    <div class="container">
-        <h2 class="text-center section-title mt-5">এডমিন ড্যাশবোর্ড</h2>
-        <p>এখানে এডমিন প্যানেলের কন্টেন্ট থাকবে।</p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">এডমিন প্যানেল</a>
+            <div class="collapse navbar-collapse" id="adminNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="admin-nav-links">
+                    <li class="nav-item"><a class="nav-link" href="#users" onclick="showSection('users')">ব্যবহারকারীগণ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#slideshow" onclick="showSection('slideshow')">স্লাইডশো</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menus" onclick="showSection('menus')">মেনু</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#pages" onclick="showSection('pages')">পেজ ম্যানেজমেন্ট</a></li>
+                </ul>
+                <button class="btn btn-outline-light" onclick="logout()">লগ আউট</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <main id="admin-content">
+            <!-- পেজ ম্যানেজমেন্ট -->
+            <section id="pages">
+                <h2>পেজ ম্যানেজমেন্ট</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <form id="page-content-form">
+                            <div class="mb-3">
+                                <label for="page-select" class="form-label">পেজ নির্বাচন করুন</label>
+                                <select class="form-select" id="page-select">
+                                    <option value="about">আমাদের সম্পর্কে</option>
+                                    <option value="services">সেবাসমূহ</option>
+                                    <!-- ভবিষ্যতে আরও পেজ যোগ করা যাবে -->
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="page-editor" class="form-label">কনটেন্ট</label>
+                                <textarea class="form-control" id="page-editor" rows="10"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">সেভ করুন</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Other sections (d-none) -->
+             <section id="users" class="d-none">...</section>
+             <section id="slideshow" class="d-none">...</section>
+             <section id="menus" class="d-none">...</section>
+
+        </main>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="firebase.js"></script>
+    <script src="admin_script.js"></script> 
 </body>
 </html>

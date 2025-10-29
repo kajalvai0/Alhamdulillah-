@@ -12,55 +12,74 @@
     <!-- নেভিগেশন বার -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-hands-helping me-2"></i>
-                আলহামদুলিল্লাহ ফাউন্ডেশন
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand" href="index.html"><i class="fas fa-hands-helping me-2"></i>আলহামদুলিল্লাহ ফাউন্ডেশন</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">হোম</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">আমাদের সম্পর্কে</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">সেবাসমূহ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="signup.html">সদস্য হন</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">লগইন</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn donate-btn mt-1" data-bs-toggle="modal" data-bs-target="#donateModal">
-                            <i class="fas fa-donate me-1"></i> ডোনেট করুন
-                        </button
-                    </li>
+                <ul class="navbar-nav ms-auto" id="main-menu"></ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link text-light" href="admin_login.html" style="opacity: 0.7;">এডমিন লগইন</a></li>
+                    <li class="nav-item"><button class="btn donate-btn mt-1" data-bs-toggle="modal" data-bs-target="#donateModal"><i class="fas fa-donate me-1"></i>ডোনেট করুন</button></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- হিরো সেকশন -->
-    <section class="hero-section">
+    <!-- ডাইনামিক স্লাইডশো -->
+    <section id="hero-slideshow" class="carousel slide" data-bs-ride="carousel">
+        <!-- ... স্লাইডশো কনটেন্ট ... -->
+    </section>
+
+    <!-- আমাদের সম্পর্কে সেকশন -->
+    <section id="about" class="py-5">
         <div class="container">
-            <h1 class="display-4 fw-bold">কর্জে হাসানা - বিনা সুদে ঋণ প্রদান</h1>
-            <p class="lead">অসচ্ছল, বিধবা, অসুস্থ, নারী উদ্যোক্তা, স্বল্প আয়ের কর্মজীবী নারী এবং নারী শিক্ষার্থীদের সহায়তা</p>
-            <a href="signup.html" class="btn btn-success btn-lg mt-3">সদস্য হতে আবেদন করুন</a>
+            <div id="about-content">
+                <!-- এই কন্টেন্ট ডাইনামিকভাবে লোড হবে -->
+                <h2 class="text-center mb-4">আমাদের সম্পর্কে</h2>
+                <p>এখানে "আমাদের সম্পর্কে" পেজের ডিফল্ট কনটেন্ট থাকবে। আপনি অ্যাডমিন প্যানেল থেকে এটি পরিবর্তন করতে পারবেন।</p>
+            </div>
         </div>
     </section>
 
-    <!-- ... (বাকি কন্টেন্ট আগের মতই) ... -->
+    <!-- সেবাসমূহ সেকশন -->
+    <section id="services" class="bg-light py-5">
+        <div class="container">
+             <div id="services-content">
+                <!-- এই কন্টেন্ট ডাইনামিকভাবে লোড হবে -->
+                <h2 class="text-center mb-4">আমাদের সেবাসমূহ</h2>
+                <p>এখানে "সেবাসমূহ" পেজের ডিফল্ট কনটেন্ট থাকবে। আপনি অ্যাডমিন প্যানেল থেকে এটি পরিবর্তন করতে পারবেন।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ফুটার -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 আলহামদুলিল্লাহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <!-- ডোনেট মোডাল -->
+    <div class="modal fade" id="donateModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ডোনেট করুন</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>আমাদের কার্যক্রমে সহায়তা করতে আপনার অনুদান পাঠান।</p>
+                    <p><strong>বিকাশ: </strong> 01xxxxxxxxx</p>
+                    <p><strong>নগদ: </strong> 01xxxxxxxxx</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="firebase.js"></script>
     <script src="script.js"></script>
 </body>
