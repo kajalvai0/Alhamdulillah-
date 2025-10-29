@@ -1,37 +1,41 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // এই ফাংশনটি ব্যবহারকারী অ্যাডমিন কিনা তা যাচাই করে
+    // This function checks if a user is an admin
     function isAdmin() {
-      return get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.isAdmin == true;
+      return exists(/databases/$(database)/documents/admins/$(request.auth.uid));
     }
 
-    // ব্যবহারকারীরা সাইন-আপ করার সময় নিজেদের ডেটা তৈরি করতে পারবে
+    // Users can create their own user document on signup
     match /users/{userId} {
       allow create;
-      // ব্যবহারকারীরা শুধুমাত্র নিজেদের ডেটা পড়তে পারবে
+      // Users can only read their own data
       allow read: if request.auth.uid == userId;
-      // অ্যাডমিনরা সব ব্যবহারকারীর ডেটা পড়তে ও লিখতে পারবে
+      // Admins can read and write all user data
       allow read, write: if isAdmin();
     }
-    
-    // ওয়েবসাইটের কনটেন্ট (যেমন স্লাইডশো, টেক্সট) সবাই পড়তে পারবে
-    match /site_content/{docId} {
+
+    // Public read access for slideshow, menus, and pages
+    match /slideshow/{slideId} {
         allow read: if true;
-        // শুধুমাত্র অ্যাডমিনরা ওয়েবসাইটের কনটেন্ট পরিবর্তন করতে পারবে
         allow write: if isAdmin();
     }
 
-    // অ্যাডমিনদের তালিকা শুধুমাত্র অ্যাডমিনরাই পড়তে পারবে
-    match /admins/{adminId} {
-        allow read: if isAdmin();
-        // নিরাপত্তার জন্য, ক্লায়েন্ট সাইড থেকে অ্যাডমিনদের তালিকা পরিবর্তন করা যাবে না
-        allow write: if false; 
+    match /menus/{menuId} {
+        allow read: if true;
+        allow write: if isAdmin();
     }
 
-    // অ্যাডমিনরা অন্য যেকোনো কালেকশনে লিখতে ও পড়তে পারবে (যেমন মেনু, পেজ)
-    match /{document=**} {
-      allow read, write: if isAdmin();
+    match /pages/{pageId} {
+        allow read: if true;
+        allow write: if isAdmin();
+    }
+
+    // Admins can read the list of other admins
+    match /admins/{adminId} {
+        allow read: if isAdmin();
+        // For security, the admin list cannot be changed from the client-side
+        allow write: if false;
     }
   }
 }

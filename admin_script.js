@@ -6,13 +6,32 @@ const pageContentForm = document.getElementById('page-content-form');
 
 // Initial loads
 auth.onAuthStateChanged(user => {
-    if (user && user.isAdmin) { // Assuming isAdmin flag is set on user object
-        loadUsers();
-        loadSlides();
-        loadMenus();
-        loadPageContent(); // পেজের কনটেন্ট লোড করার ফাংশন
+    if (user) {
+        // Check if the user is an admin from Firestore
+        db.collection('admins').doc(user.uid).get().then(doc => {
+            if (doc.exists) {
+                // User is an admin, load admin content
+                console.log("Admin user verified. Loading content...");
+                loadUsers();
+                loadSlides();
+                loadMenus();
+                loadPageContent();
+            } else {
+                // User is not an admin, redirect them
+                console.log("User is not an admin. Redirecting...");
+                alert("আপনার এই পেজটি দেখার অনুমতি নেই।");
+                window.location.href = 'index.html';
+            }
+        }).catch(error => {
+            console.error("Error checking admin status:", error);
+            alert("এডমিন স্ট্যাটাস যাচাই করতে সমস্যা হয়েছে।");
+            window.location.href = 'index.html';
+        });
     } else {
-        // Redirect if not admin
+        // No user is signed in, redirect to login page
+        if (!window.location.pathname.endsWith('admin_login.html')) {
+            window.location.href = 'admin_login.html';
+        }
     }
 });
 
